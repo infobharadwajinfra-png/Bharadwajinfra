@@ -177,6 +177,11 @@
 </style>
 </head>
 <body>
+  <!-- Preloader -->
+<div id="preloader" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:white;z-index:9999;">
+  <img src="logo.png.jpg" alt="BIS Logo" style="width:120px;height:120px;margin-bottom:12px;"/>
+  <h2 style="font-family:sans-serif;color:#0b5f8a;">BIS - Bharadwaj Infra & Services</h2>
+</div>
 <!-- NAV + HERO -->
 <nav aria-label="Main navigation" class="container">
 <div class="nav-left">
@@ -321,6 +326,12 @@
     window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
     document.getElementById('sentNote').style.display = 'block';
   }
+   // Preloader hide
+  window.addEventListener("load", function(){
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+    }, 1000);
+  });
 </script>
 </body>
 </html>
