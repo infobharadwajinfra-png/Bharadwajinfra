@@ -30,7 +30,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.2);
       z-index: 1000;
     }
-    nav img {height: 55px; border-radius: 50%;}
+    nav img {height: 55px; border-radius: 50%; object-fit: cover; object-position: center;}
     nav a {color: white; text-decoration: none; margin-left: 22px; font-weight: 600; transition: color 0.3s ease;}
     nav a:hover {color: var(--accent);}
 
@@ -43,13 +43,19 @@
       background: linear-gradient(-45deg, #0b5f8a, #082d44, #f7931a, #0b5f8a);
       background-size: 400% 400%;
       animation: gradientMove 10s ease infinite;
+      padding-top: 80px;
     }
     @keyframes gradientMove {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-    .hero img {width: 150px; margin-bottom: 12px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));}
+    .hero img {
+      width: 150px; height: 150px;
+      border-radius: 50%; object-fit: cover; object-position: center;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    }
     .hero h1 {font-size: 40px; margin-bottom: 8px;}
     .hero .tag {font-size: 18px; opacity: 0.95; margin-bottom: 22px;}
     .cta {
@@ -91,7 +97,11 @@
       text-align: center; transition: transform 0.3s ease;
     }
     .team-card-premium:hover {transform: translateY(-8px);}
-    .team-card-premium img {width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);}
+    .team-card-premium img {
+      width: 140px; height: 140px;
+      border-radius: 50%; object-fit: cover; object-position: center;
+      margin-bottom: 15px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
     .team-card-premium h4 {font-size: 20px; color: #0b5f8a; margin-bottom: 5px;}
     .team-card-premium p {margin: 4px 0; color: #555; font-weight: 500;}
     .team-card-premium a {color: #0b5f8a; text-decoration: none; font-weight: 600;}
@@ -116,7 +126,6 @@
     .social-icons a {color: white; margin-right: 12px; font-size: 20px; transition: color 0.3s ease;}
     .social-icons a:hover {color: var(--accent);}
     .copyright {text-align: center; margin-top: 25px; font-size: 14px; opacity: 0.8;}
-
   </style>
 </head>
 <body>
