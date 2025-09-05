@@ -1,182 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BIS - Bharadwaj Infra & Services</title>
-  <meta name="description" content="Bharadwaj Infra & Services — Smart Infra, Clean Solutions. Municipal & Private cleaning, public space maintenance, industrial hygiene and tender-based services.">
-
+  <meta name="description" content="Bharadwaj Infra & Services — Smart Infra, Clean Solutions. Municipal & Private cleaning, public space maintenance, industrial hygiene and tender-based services." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
-    :root{
-      --primary:#0b5f8a;
-      --accent:#f7931a;
-      --muted:#6b7280;
-      --card-bg:#ffffff;
-      --maxw:1100px;
+    :root {
+      --primary: #0b5f8a;
+      --accent: #f7931a;
+      --dark: #072b45;
+      --light: #f5f7fb;
+      --muted: #6b7280;
+      --maxw: 1200px;
     }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:Arial, sans-serif;line-height:1.6;background:#f9fafb;color:#111827;}
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Poppins', sans-serif; background: var(--light); color: #1f2937; line-height: 1.6;}
 
-    header{background:var(--primary);color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
-    header h1{font-size:1.25rem;font-weight:700;}
-    nav ul{list-style:none;display:flex;gap:1rem;}
-    nav a{color:#fff;text-decoration:none;font-weight:600;}
-    nav a:hover{color:var(--accent);}
+    /* NAVBAR */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 30px;
+      background: rgba(11,95,138,0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    nav img {height: 55px; border-radius: 50%; object-fit: cover; object-position: center;}
+    nav a {color: white; text-decoration: none; margin-left: 22px; font-weight: 600; transition: color 0.3s ease;}
+    nav a:hover {color: var(--accent);}
 
-    .hero{background:#eaf4fb;padding:4rem 1rem;text-align:center;}
-    .hero h2{font-size:2rem;color:var(--primary);}
-    .hero p{max-width:600px;margin:1rem auto;color:#374151;}
-    .btn{display:inline-block;padding:.75rem 1.5rem;background:var(--accent);color:#fff;font-weight:700;border-radius:6px;text-decoration:none;}
-    .btn:hover{background:#d67f17;}
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      text-align: center; color: white;
+      background: linear-gradient(-45deg, #0b5f8a, #082d44, #f7931a, #0b5f8a);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      padding-top: 80px;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .hero img {
+      width: 150px; height: 150px;
+      border-radius: 50%; object-fit: cover; object-position: center;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    }
+    .hero h1 {font-size: 40px; margin-bottom: 8px;}
+    .hero .tag {font-size: 18px; opacity: 0.95; margin-bottom: 22px;}
+    .cta {
+      display: inline-block; padding: 14px 28px; border-radius: 10px;
+      background: var(--accent); color: white;
+      font-weight: 600; text-decoration: none;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+    }
+    .cta:hover {background: white; color: var(--primary); transform: scale(1.05);}
 
-    .section-title{text-align:center;font-size:1.75rem;font-weight:700;color:var(--primary);margin:3rem 0 1.5rem;}
+    /* SECTION STYLING */
+    section {padding: 80px 20px; max-width: var(--maxw); margin: auto;}
+    .section-title {text-align: center; font-size: 30px; margin-bottom: 35px; color: var(--primary); font-weight: 700;}
 
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 1rem;}
+    /* ABOUT */
+    .card-row {display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px;}
+    .about-card {background: white; padding: 26px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;}
+    .about-card:hover {transform: translateY(-5px);}
 
-    .card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:2rem;}
-
-    .card, .team-card{background:var(--card-bg);padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
-    .card h3{color:var(--primary);margin-bottom:.5rem;}
-
-    /* Team photos */
-    .team-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      margin: 16px auto 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    /* SERVICES */
+    .services-list {display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 20px;}
+    .service-item {
+      background: white; padding: 22px; border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 14px;
+      font-weight: 600; color: #0f1724;
       transition: transform 0.3s ease;
     }
-    .team-photo:hover {
-      transform: scale(1.05);
-    }
-    .team-card h4{color:var(--primary);margin-bottom:.25rem;}
-    .team-card .small{font-size:.9rem;color:var(--muted);}
+    .service-item:hover {transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.15);}
+    .service-item i {color: var(--primary); font-size: 24px;}
 
-    footer{background:#1f2937;color:#d1d5db;text-align:center;padding:2rem 1rem;margin-top:2rem;}
-    footer a{color:var(--accent);text-decoration:none;font-weight:600;}
-    footer a:hover{color:#fff;}
+    /* TEAM SECTION */
+    .team-wrapper {max-width: var(--maxw); margin: 0 auto; padding: 60px 20px;}
+    .team-top {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;}
+    .team-card-premium {
+      background: white; padding: 25px; border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      text-align: center; transition: transform 0.3s ease;
+    }
+    .team-card-premium:hover {transform: translateY(-8px);}
+    .team-card-premium img {
+      width: 140px; height: 140px;
+      border-radius: 50%; object-fit: cover; object-position: center;
+      margin-bottom: 15px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    .team-card-premium h4 {font-size: 20px; color: #0b5f8a; margin-bottom: 5px;}
+    .team-card-premium p {margin: 4px 0; color: #555; font-weight: 500;}
+    .team-card-premium a {color: #0b5f8a; text-decoration: none; font-weight: 600;}
+    .team-card-premium a:hover {color: #f7931a;}
+
+    .team-bottom {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 10px;}
+    .team-card-simple {
+      background: white; padding: 20px; border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      text-align: center; transition: all 0.3s ease;
+    }
+    .team-card-simple:hover {transform: translateY(-6px); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);}
+    .team-card-simple h4 {color: #0b5f8a; font-size: 18px; margin-bottom: 6px;}
+    .team-card-simple p.role {color: #555; font-weight: 600; margin-bottom: 8px;}
+    .team-card-simple p.desc {color: #777; font-size: 14px; line-height: 1.5;}
+
+    /* FOOTER */
+    footer {background: linear-gradient(135deg, #0b5f8a, #072b45); color: white; padding: 40px 20px 20px; margin-top: 50px;}
+    .footer-container {display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 30px; max-width: var(--maxw); margin: auto;}
+    .footer-links a {color: #fff; text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s ease;}
+    .footer-links a:hover {color: var(--accent);}
+    .social-icons a {color: white; margin-right: 12px; font-size: 20px; transition: color 0.3s ease;}
+    .social-icons a:hover {color: var(--accent);}
+    .copyright {text-align: center; margin-top: 25px; font-size: 14px; opacity: 0.8;}
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-left"><img src="logo.png.jpg" alt="BIS Logo" /></div>
+    <div class="nav-right">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <img src="logo.png.jpg" alt="BIS Logo" />
     <h1>Bharadwaj Infra & Services</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="tag">SMART INFRA, CLEAN SOLUTIONS</div>
+    <a class="cta" href="#contact">Get a Quote</a>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h2>Smart Infra, Clean Solutions</h2>
-    <p>We deliver reliable, efficient and tender-based infra and cleaning services — keeping communities and industries clean, safe and future-ready.</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="container">
+  <!-- ABOUT -->
+  <section id="about" data-aos="fade-up">
     <h2 class="section-title">About Us</h2>
-    <p>Bharadwaj Infra & Services (BIS) specializes in municipal cleaning, industrial hygiene and infra maintenance. With a focus on smart, sustainable and tender-driven services, we ensure efficiency and quality for both public and private clients.</p>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="container">
-    <h2 class="section-title">Our Services</h2>
     <div class="card-row">
-      <div class="card">
-        <h3>Municipal Cleaning</h3>
-        <p>Comprehensive street, drain and public space cleaning for municipalities.</p>
+      <div class="about-card">
+        <h3 style="color:var(--primary); margin-bottom:8px;">Bharadwaj Infra & Services (BIS)</h3>
+        <p><strong>Chairman & Director:</strong> Mr. Ashish Kumar Dwivedi</p>
+        <p>BIS, led by Mr. Ashish Kumar Dwivedi, is a professional service firm operating across Madhya Pradesh and Chhattisgarh. We specialize in reliable, tender-based solutions for municipal bodies and private organizations, ensuring quality, safety, and timely completion of projects.</p>
+        <p style="margin-top:10px;"><strong>Mission:</strong> Deliver dependable services with professionalism, quality, and punctuality.</p>
+        <p><strong>Values:</strong> Trust • Honesty • Professionalism • Quality</p>
       </div>
-      <div class="card">
-        <h3>Industrial Hygiene</h3>
-        <p>Professional cleaning and hygiene solutions for industrial plants and factories.</p>
-      </div>
-      <div class="card">
-        <h3>Infra Maintenance</h3>
-        <p>Maintenance of public and private infra ensuring long-term sustainability.</p>
-      </div>
-      <div class="card">
-        <h3>Tender-based Services</h3>
-        <p>Registered contractors delivering cost-effective, large-scale projects via e-tenders.</p>
+      <div class="about-card">
+        <h4 style="color:var(--primary);">Quick Contact</h4>
+        <p>Email: <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a></p>
+        <p>Phone: <a href="tel:+916260619612">+91 62606 19612</a></p>
+        <p>Address: Jagmal Block, Bilaspur (C.G)</p>
+        <p>Instagram: <a href="https://www.instagram.com/bharadwaj_infra_services">bharadwaj_infra_services</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Team -->
-  <section id="team">
-    <h2 class="section-title">Our Team</h2>
-    <div class="card-row container" style="align-items:stretch;">
+  <!-- SERVICES -->
+  <section id="services" data-aos="fade-up">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-list">
+      <div class="service-item"><i class="fas fa-industry"></i> Infrastructure Development & Construction Support</div>
+      <div class="service-item"><i class="fas fa-clipboard-list"></i> Tender-Based Custom Projects</div>
+      <div class="service-item"><i class="fas fa-tree"></i> Public Space Maintenance & Facility Management</div>
+      <div class="service-item"><i class="fas fa-broom"></i> Municipal Sanitation & Waste Management</div>
+      <div class="service-item"><i class="fas fa-recycle"></i> Solid Waste Collection & Disposal</div>
+    </div>
+  </section>
 
-      <!-- Ashish -->
-      <div class="team-card">
-        <img alt="Ashish Kumar Dwivedi" src="ashish.jpg.jpg" class="team-photo"/>
-        <div class="info">
+  <!-- TEAM -->
+  <section id="team" data-aos="fade-up">
+    <div class="team-wrapper">
+      <h2 class="section-title">Our Team</h2>
+      <div class="team-top">
+        <div class="team-card-premium">
+          <img src="ashish.jpg.jpg" alt="Ashish Kumar Dwivedi">
           <h4>Ashish Kumar Dwivedi</h4>
-          <p class="small">Chairman &amp; Director</p>
-          <p style="margin-top:10px; font-weight:700; color:var(--primary)">+91 62606 19612</p>
-          <p class="small"><a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a></p>
+          <p>Chairman & Director</p>
+          <p><strong>+91 62606 19612</strong></p>
+          <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a>
         </div>
-      </div>
-
-      <!-- Atul -->
-      <div class="team-card">
-        <img alt="Atul Kumar Pandey" src="atul.jpg.jpg" class="team-photo"/>
-        <div class="info">
+        <div class="team-card-premium">
+          <img src="atul.jpg.jpg" alt="Atul Kumar Pandey">
           <h4>Atul Kumar Pandey</h4>
-          <p class="small">Senior Project Director</p>
-          <p style="margin-top:10px; font-weight:700; color:var(--primary)">+91 89597 21665</p>
-          <p class="small"><a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a></p>
-          <p class="small" style="margin-top:8px;">
-            Bringing strong leadership and operational expertise to BIS. Oversees project execution, manpower allocation, and vendor coordination.
-          </p>
+          <p>Senior Project Director</p>
+          <p><strong>+91 89597 21665</strong></p>
+          <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a>
+          <p style="margin-top: 10px; font-size: 14px; color:#666;">Bringing strong leadership and operational expertise to BIS. Oversees project execution, manpower allocation, and vendor coordination.</p>
         </div>
       </div>
-
-    </div>
-
-    <!-- Other team members -->
-    <div class="card-row container">
-      <div class="card">
-        <h3>Sonu Nahar</h3>
-        <p class="small"><strong>Project Manager</strong></p>
-        <p>Expert in supervising site activities and managing on-ground workforce for smooth project execution.</p>
-      </div>
-      <div class="card">
-        <h3>Prateek Dwivedi</h3>
-        <p class="small"><strong>Project Execution</strong></p>
-        <p>Manages execution workflows, ensures timely deliverables, and coordinates with vendors and clients.</p>
-      </div>
-      <div class="card">
-        <h3>Raj Dwivedi</h3>
-        <p class="small"><strong>Project & Admin</strong></p>
-        <p>Handles administrative responsibilities and supports seamless coordination between project teams and management.</p>
+      <div class="team-bottom">
+        <div class="team-card-simple">
+          <h4>Sonu Nahar</h4>
+          <p class="role">Project Manager</p>
+          <p class="desc">Expert in supervising site activities and managing on-ground workforce for smooth project execution.</p>
+        </div>
+        <div class="team-card-simple">
+          <h4>Prateek Dwivedi</h4>
+          <p class="role">Project Execution</p>
+          <p class="desc">Manages execution workflows, ensures timely deliverables, and coordinates with vendors and clients.</p>
+        </div>
+        <div class="team-card-simple">
+          <h4>Raj Dwivedi</h4>
+          <p class="role">Project & Admin</p>
+          <p class="desc">Handles administrative responsibilities and supports seamless coordination between project teams and management.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <h2 class="section-title">Contact Us</h2>
-    <p>Email: <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a></p>
-    <p>Phone: +91 62606 19612</p>
-    <p>Address: Village Kapuri, Post Keoti, Rewa, Madhya Pradesh, India</p>
-  </section>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Bharadwaj Infra & Services. All rights reserved.</p>
-    <p>Powered by <a href="https://www.bharadwajinfra.in">BIS</a></p>
+    <div class="footer-container">
+      <div>
+        <h3>Bharadwaj Infra & Services</h3>
+        <p>SMART INFRA, CLEAN SOLUTIONS</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <div class="social-icons" style="margin-top:10px;">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">© <span id="year"></span> Bharadwaj Infra & Services — All Rights Reserved</div>
   </footer>
 
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({duration: 900, once: true});
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
