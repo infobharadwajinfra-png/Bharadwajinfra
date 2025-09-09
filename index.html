@@ -154,9 +154,48 @@
     }
 
     .copyright {text-align: center; margin-top: 20px; font-size: 14px; opacity: 0.8;}
+    /* ================= PRELOADER ================= */
+#preloader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #0b5f8a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-logo img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  animation: pulseLogo 2s infinite;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+}
+
+/* Logo Pulse Effect */
+@keyframes pulseLogo {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Hide preloader */
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
   </style>
 </head>
 <body>
+
+  <!-- ================= PRELOADER ================= -->
+  <div id="preloader">
+    <div class="loader-logo">
+      <img src="logo.png.jpg" alt="BIS Logo">
+    </div>
+  </div>
 
   <!-- NAVBAR -->
   <nav>
@@ -287,6 +326,14 @@
   <script>
     AOS.init({duration: 900, once: true});
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Preloader
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => {
+    preloader.classList.add("hidden");
+  }, 2200); // 2.2 seconds delay
+});
   </script>
 </body>
 </html>
