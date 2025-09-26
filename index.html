@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,55 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BIS - Bharadwaj Infra & Services</title>
  <meta name="description" content="Bharadwaj Infra & Services — Reliable tender-based solutions for infrastructure development, construction support, facility management, and public projects across Madhya Pradesh & Chhattisgarh." />
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://www.Bharadwajinfra.in/">
-
-  <!-- Theme Color (for mobile browsers) -->
   <meta name="theme-color" content="#0b5f8a">
 
-  <!-- Favicon and Browser Logo -->
+  <!-- Favicon -->
   <link rel="icon" href="siteL.png" type="image/png" sizes="32x32">
-  <link rel="icon" href="siteL.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="siteL.png" sizes="180x180">
-  <link rel="shortcut icon" href="siteL.png" type="image/png">
 
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph -->
   <meta property="og:title" content="BIS - Bharadwaj Infra & Services">
   <meta property="og:description" content="Smart Infra, Reliable Solutions. Infrastructure, facility management, and tender-based project delivery.">
   <meta property="og:image" content="https://www.Bharadwajinfra.in/logo.jpg">
   <meta property="og:url" content="https://www.Bharadwajinfra.in/">
   <meta property="og:type" content="website">
 
-  <!-- Twitter Card Meta Tags -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BIS - Bharadwaj Infra & Services">
   <meta name="twitter:description" content="Smart Infra, Reliable Solutions. Infrastructure, facility management, and tender-based project delivery.">
   <meta name="twitter:image" content="https://www.Bharadwajinfra.in/logo.jpg">
 
-  <!-- Organization Schema Markup (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Bharadwaj Infra & Services",
-    "url": "https://www.bharadwajinfra.in",
-    "logo": "https://www.bharadwajinfra.in/logo.jpg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-6260619612",
-      "contactType": "customer service",
-      "areaServed": "IN",
-      "availableLanguage": ["en","hi"]
-    },
-    "sameAs": [
-      "https://www.instagram.com/bis_infra"
-    ]
-  }
-  </script>
-
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
   <style>
     :root {
       --primary: #0b5f8a;
@@ -68,9 +40,43 @@
       --maxw: 1200px;
     }
     * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {font-family: 'Poppins', sans-serif; background: var(--light); color: #1f2937; line-height: 1.6;}
 
-    /* NAVBAR */
+    /* ================= GLOBAL BACKGROUND ================= */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at top left, #0b5f8a, transparent 40%),
+                  radial-gradient(circle at bottom right, #f7931a, transparent 40%),
+                  radial-gradient(circle at top right, #082d44, transparent 50%);
+      background-size: cover;
+      z-index: -2;
+      animation: bgMove 18s ease-in-out infinite alternate;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("https://www.transparenttextures.com/patterns/cubes.png");
+      opacity: 0.07;
+      z-index: -1;
+      pointer-events: none;
+    }
+    @keyframes bgMove {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    /* ================= NAVBAR ================= */
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       display: flex; justify-content: space-between; align-items: center;
@@ -80,162 +86,81 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.2);
       z-index: 1000;
     }
-    nav img {
-      height: 55px; border-radius: 50%; 
-      object-fit: cover; object-position: 50% 25%; /* 👈 zoom out + upar ka part */
-    }
+    nav img { height: 55px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; }
     nav a {color: white; text-decoration: none; margin-left: 22px; font-weight: 600; transition: color 0.3s ease;}
     nav a:hover {color: var(--accent);}
 
-    /* HERO */
+    /* ================= HERO ================= */
     .hero {
-      min-height: 90vh;
+      min-height: 95vh;
       display: flex; align-items: center; justify-content: center;
       flex-direction: column;
       text-align: center; color: white;
-      background: linear-gradient(-45deg, #0b5f8a, #082d44, #f7931a, #0b5f8a);
-      background-size: 400% 400%;
-      animation: gradientMove 10s ease infinite;
-      padding-top: 80px;
+      position: relative;
+      padding-top: 90px;
     }
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(11,95,138,0.85), rgba(8,45,68,0.85));
+      z-index: -1;
     }
-    .hero img {
-      width: 150px; height: 150px;
-      border-radius: 50%; object-fit: cover; object-position: 50% 25%;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-    }
-    .hero h1 {font-size: 40px; margin-bottom: 8px;}
-    .hero .tag {font-size: 18px; opacity: 0.95; margin-bottom: 22px;}
-    .cta {
-      display: inline-block; padding: 14px 28px; border-radius: 10px;
-      background: var(--accent); color: white;
-      font-weight: 600; text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
-    }
+    .hero img {width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; margin-bottom: 12px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));}
+    .hero h1 {font-size: 42px; margin-bottom: 10px;}
+    .hero .tag {font-size: 19px; opacity: 0.95; margin-bottom: 24px;}
+    .cta {display: inline-block; padding: 14px 28px; border-radius: 10px; background: var(--accent); color: white; font-weight: 600; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,0.25); transition: all 0.3s ease;}
     .cta:hover {background: white; color: var(--primary); transform: scale(1.05);}
 
-    /* SECTION STYLING */
+    /* ================= SECTION ================= */
     section {padding: 80px 20px; max-width: var(--maxw); margin: auto;}
     .section-title {text-align: center; font-size: 30px; margin-bottom: 35px; color: var(--primary); font-weight: 700;}
 
-    /* ABOUT */
+    /* ================= ABOUT ================= */
     .card-row {display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px;}
     .about-card {background: white; padding: 26px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;}
     .about-card:hover {transform: translateY(-5px);}
 
-    /* SERVICES */
+    /* ================= SERVICES ================= */
     .services-list {display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 20px;}
-    .service-item {
-      background: white; padding: 22px; border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      display: flex; align-items: center; gap: 14px;
-      font-weight: 600; color: #0f1724;
-      transition: transform 0.3s ease;
-    }
+    .service-item {background: white; padding: 22px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 14px; font-weight: 600; color: #0f1724; transition: transform 0.3s ease;}
     .service-item:hover {transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.15);}
     .service-item i {color: var(--primary); font-size: 24px;}
 
-    /* TEAM SECTION */
+    /* ================= TEAM ================= */
     .team-wrapper {max-width: var(--maxw); margin: 0 auto; padding: 60px 20px;}
     .team-top {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;}
-    .team-card-premium {
-      background: white; padding: 25px; border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      text-align: center; transition: transform 0.3s ease;
-    }
+    .team-card-premium {background: white; padding: 25px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); text-align: center; transition: transform 0.3s ease;}
     .team-card-premium:hover {transform: translateY(-8px);}
-    .team-card-premium img {
-      width: 140px; height: 140px;
-      border-radius: 50%; object-fit: cover; object-position: 50% 25%;
-      margin-bottom: 15px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    }
+    .team-card-premium img {width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; margin-bottom: 15px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);}
     .team-card-premium h4 {font-size: 20px; color: #0b5f8a; margin-bottom: 5px;}
     .team-card-premium p {margin: 4px 0; color: #555; font-weight: 500;}
     .team-card-premium a {color: #0b5f8a; text-decoration: none; font-weight: 600;}
     .team-card-premium a:hover {color: #f7931a;}
-
     .team-bottom {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 10px;}
-    .team-card-simple {
-      background: white; padding: 20px; border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      text-align: center; transition: all 0.3s ease;
-    }
+    .team-card-simple {background: white; padding: 20px; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center; transition: all 0.3s ease;}
     .team-card-simple:hover {transform: translateY(-6px); box-shadow: 0 10px 26px rgba(0,0,0,0.12);}
     .team-card-simple h4 {color: #0b5f8a; font-size: 18px; margin-bottom: 6px;}
     .team-card-simple p.role {color: #555; font-weight: 600; margin-bottom: 8px;}
     .team-card-simple p.desc {color: #777; font-size: 14px; line-height: 1.5;}
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
     footer {background: linear-gradient(135deg, #0b5f8a, #072b45); color: white; padding: 40px 20px 20px; margin-top: 50px;}
     .footer-container {display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 30px; max-width: var(--maxw); margin: auto;}
     .footer-links a {color: #fff; text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s ease;}
     .footer-links a:hover {color: var(--accent);}
-
-    /* Professional Social Row */
-    .social-row {
-      margin: 20px auto;
-      display: flex; justify-content: center; gap: 25px;
-    }
-    .social-row a {
-      width: 50px; height: 50px;
-      display: flex; align-items: center; justify-content: center;
-      background: white; color: var(--primary);
-      border-radius: 50%;
-      font-size: 22px; text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-    .social-row a:hover {
-      background: var(--accent); color: white; transform: scale(1.1);
-    }
-
-    .footer-logo {
-      text-align: center; margin-top: 30px;
-    }
-    .footer-logo img {
-      height: 70px; border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
+    .social-row {margin: 20px auto; display: flex; justify-content: center; gap: 25px;}
+    .social-row a {width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: white; color: var(--primary); border-radius: 50%; font-size: 22px; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,0.2); transition: all 0.3s ease;}
+    .social-row a:hover {background: var(--accent); color: white; transform: scale(1.1);}
+    .footer-logo {text-align: center; margin-top: 30px;}
+    .footer-logo img {height: 70px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3);}
     .copyright {text-align: center; margin-top: 20px; font-size: 14px; opacity: 0.8;}
+
     /* ================= PRELOADER ================= */
-#preloader {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #0b5f8a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-
-.loader-logo img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  animation: pulseLogo 2s infinite;
-  filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
-}
-
-/* Logo Pulse Effect */
-@keyframes pulseLogo {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Hide preloader */
-#preloader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+    #preloader {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0b5f8a; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.6s ease, visibility 0.6s ease;}
+    .loader-logo img {width: 140px; height: 140px; border-radius: 50%; animation: pulseLogo 2s infinite; filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));}
+    @keyframes pulseLogo {0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.8; } 100% { transform: scale(1); opacity: 1; }}
+    #preloader.hidden {opacity: 0; visibility: hidden;}
   </style>
 </head>
 <body>
@@ -273,16 +198,14 @@
       <div class="about-card">
         <h3 style="color:var(--primary); margin-bottom:8px;">Bharadwaj Infra & Services (BIS)</h3>
         <p><strong>Chairman & Director:</strong> Mr. Ashish Kumar Dwivedi</p>
-        <p>BIS is a professional service firm focused on infrastructure support, facility management, and tender-based projects. We work with municipal bodies and private organizations across Madhya Pradesh and Chhattisgarh. Our expertise spans construction support, project execution, facility services, and customized tender solutions. We are also capable of handling sanitation and waste management services as per project needs.</p>
-        <p style="margin-top:10px;"><strong>Mission:</strong> Our mission is to deliver reliable, tender-based infrastructure and facility management solutions — with professionalism, quality, and on-time execution.</p>
-        <p><strong>Values:</strong> Trust • Honesty • Professionalism • Quality</p>
+        <p>BIS is a professional service firm focused on infrastructure support, facility management, and tender-based projects...</p>
       </div>
       <div class="about-card">
         <h4 style="color:var(--primary);">Quick Contact</h4>
         <p>Email: <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a></p>
         <p>Phone: <a href="tel:+916260619612">+91 62606 19612</a></p>
         <p>Address: Jagmal Block, Bilaspur (C.G)</p>
-       <p>Instagram: <a href="https://www.instagram.com/bis_infra" target="_blank">@bis_infra</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/bis_infra" target="_blank">@bis_infra</a></p>
       </div>
     </div>
   </section>
@@ -317,30 +240,12 @@
           <p>Senior Project Director</p>
           <p><strong>+91 89597 21665</strong></p>
           <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a>
-          <p style="margin-top: 10px; font-size: 14px; color:#666;">Bringing strong leadership and operational expertise to BIS. Oversees project execution, manpower allocation, and vendor coordination.</p>
-        </div>
-      </div>
-      <div class="team-bottom">
-        <div class="team-card-simple">
-          <h4>Sonu Nahar</h4>
-          <p class="role">Project Manager</p>
-          <p class="desc">Expert in supervising site activities and managing on-ground workforce for smooth project execution.</p>
-        </div>
-        <div class="team-card-simple">
-          <h4>Prateek Dwivedi</h4>
-          <p class="role">Project Execution</p>
-          <p class="desc">Manages execution workflows, ensures timely deliverables, and coordinates with vendors and clients.</p>
-        </div>
-        <div class="team-card-simple">
-          <h4>Raj Dwivedi</h4>
-          <p class="role">Project & Admin</p>
-          <p class="desc">Handles administrative responsibilities and supports seamless coordination between project teams and management.</p>
         </div>
       </div>
     </div>
   </section>
 
-   <!-- CONTACT -->
+  <!-- CONTACT -->
   <section id="contact" data-aos="fade-up">
     <h2 class="section-title">Contact Us</h2>
     <div style="text-align:center;">
@@ -353,10 +258,6 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-container">
-      <div>
-        <h3>Bharadwaj Infra & Services</h3>
-        <p>SMART INFRA, CLEAN SOLUTIONS</p>
-      </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
         <a href="#about">About</a>
@@ -364,37 +265,29 @@
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
       </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <p>Email: info.bharadwajinfra@gmail.com</p>
+        <p>Phone: +91 62606 19612</p>
+        <p>Address: Jagmal Block, Bilaspur (C.G)</p>
+      </div>
     </div>
-
-    <!-- Social Row -->
     <div class="social-row">
-      <a href="mailto:info.bharadwajinfra@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://wa.me/916260619612" target="_blank"><i class="fab fa-whatsapp"></i></a>
       <a href="https://www.instagram.com/bis_infra" target="_blank"><i class="fab fa-instagram"></i></a>
-      <!-- <a href="https://www.instagram.com/bharadwaj_infra_services" target="_blank"><i class="fab fa-instagram"></i></a> -->
+      <a href="mailto:info.bharadwajinfra@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+916260619612"><i class="fas fa-phone"></i></a>
     </div>
-
-    <!-- Footer Logo -->
-    <div class="footer-logo">
-      <img src="logo.png.jpg" alt="BIS Logo">
-    </div>
-
-    <div class="copyright">© <span id="year"></span> Bharadwaj Infra & Services — All Rights Reserved</div>
+    <div class="footer-logo"><img src="logo.jpg" alt="BIS Logo"></div>
+    <div class="copyright">© 2024 Bharadwaj Infra & Services. All Rights Reserved.</div>
   </footer>
 
-  <!-- AOS -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({duration: 900, once: true});
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Preloader
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
-  setTimeout(() => {
-    preloader.classList.add("hidden");
-  }, 2200); // 2.2 seconds delay
-});
+    AOS.init({duration: 800, offset: 100});
+    window.addEventListener("load", () => {
+      document.getElementById("preloader").classList.add("hidden");
+    });
   </script>
 </body>
 </html>
