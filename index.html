@@ -1,293 +1,403 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BIS - Bharadwaj Infra & Services</title>
- <meta name="description" content="Bharadwaj Infra & Services — Reliable tender-based solutions for infrastructure development, construction support, facility management, and public projects across Madhya Pradesh & Chhattisgarh." />
-  <link rel="canonical" href="https://www.Bharadwajinfra.in/">
-  <meta name="theme-color" content="#0b5f8a">
-
-  <!-- Favicon -->
-  <link rel="icon" href="siteL.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="siteL.png" sizes="180x180">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="BIS - Bharadwaj Infra & Services">
-  <meta property="og:description" content="Smart Infra, Reliable Solutions. Infrastructure, facility management, and tender-based project delivery.">
-  <meta property="og:image" content="https://www.Bharadwajinfra.in/logo.jpg">
-  <meta property="og:url" content="https://www.Bharadwajinfra.in/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BIS - Bharadwaj Infra & Services">
-  <meta name="twitter:description" content="Smart Infra, Reliable Solutions. Infrastructure, facility management, and tender-based project delivery.">
-  <meta name="twitter:image" content="https://www.Bharadwajinfra.in/logo.jpg">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bharadwaj Nirman (OPC) Pvt. Ltd. — BNPL</title>
+  <meta name="description" content="Bharadwaj Nirman (OPC) Pvt. Ltd. — Civil, Road, Electrical, Building Works & Support Services. Rewa." />
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS for animations -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
-    :root {
-      --primary: #0b5f8a;
-      --accent: #f7931a;
-      --dark: #072b45;
-      --light: #f5f7fb;
+    :root{
+      --blue-900: #052f4f;
+      --blue-700: #0b5f8a;
+      --yellow-500: #f7b733;
+      --yellow-400: #f9c94a;
       --muted: #6b7280;
+      --card-bg: #ffffff;
+      --page-bg: #f5f7fb;
       --maxw: 1200px;
     }
-    * {margin: 0; padding: 0; box-sizing: border-box;}
 
-    /* ================= GLOBAL BACKGROUND ================= */
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at top left, #0b5f8a, transparent 40%),
-                  radial-gradient(circle at bottom right, #f7931a, transparent 40%),
-                  radial-gradient(circle at top right, #082d44, transparent 50%);
-      background-size: cover;
-      z-index: -2;
-      animation: bgMove 18s ease-in-out infinite alternate;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url("https://www.transparenttextures.com/patterns/cubes.png");
-      opacity: 0.07;
-      z-index: -1;
-      pointer-events: none;
-    }
-    @keyframes bgMove {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--page-bg);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
     }
 
-    /* ================= NAVBAR ================= */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 30px;
-      background: rgba(11,95,138,0.8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-      z-index: 1000;
+    /* Animated gradient background layers (subtle) */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(11,95,138,0.18), transparent 20%),
+        radial-gradient(circle at 90% 90%, rgba(247,183,51,0.14), transparent 20%);
+      z-index:-2;
+      animation:bgMove 20s ease-in-out infinite alternate;
     }
-    nav img { height: 55px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; }
-    nav a {color: white; text-decoration: none; margin-left: 22px; font-weight: 600; transition: color 0.3s ease;}
-    nav a:hover {color: var(--accent);}
+    @keyframes bgMove{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    /* ================= HERO ================= */
-    .hero {
-      min-height: 95vh;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column;
-      text-align: center; color: white;
-      position: relative;
-      padding-top: 90px;
+    /* Preloader */
+    #preloader{
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+      background:var(--blue-900); z-index:9999; transition:opacity .6s ease, visibility .6s ease;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, rgba(11,95,138,0.85), rgba(8,45,68,0.85));
-      z-index: -1;
+    #preloader.hidden{opacity:0;visibility:hidden}
+    .loader-logo img{width:140px;height:140px;border-radius:50%; box-shadow:0 8px 30px rgba(0,0,0,0.45); animation:pulse 2s infinite}
+    @keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:.85}100%{transform:scale(1);opacity:1}}
+
+    /* NAVBAR */
+    nav.site-nav{
+      position:fixed; top:0; left:0; right:0; z-index:900;
+      background:linear-gradient(90deg,var(--yellow-400, #f9c94a), var(--blue-700, #0b5f8a));
+      padding:12px 20px; box-shadow:0 6px 20px rgba(3,10,18,0.12);
+      display:flex; align-items:center; justify-content:space-between;
+      backdrop-filter: blur(6px);
     }
-    .hero img {width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; margin-bottom: 12px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));}
-    .hero h1 {font-size: 42px; margin-bottom: 10px;}
-    .hero .tag {font-size: 19px; opacity: 0.95; margin-bottom: 24px;}
-    .cta {display: inline-block; padding: 14px 28px; border-radius: 10px; background: var(--accent); color: white; font-weight: 600; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,0.25); transition: all 0.3s ease;}
-    .cta:hover {background: white; color: var(--primary); transform: scale(1.05);}
+    .nav-left{display:flex; align-items:center; gap:14px}
+    .nav-left img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,0.18)}
+    .brand {font-weight:700;color:#fff;font-size:18px;letter-spacing:.2px}
+    .nav-right{display:flex; gap:18px; align-items:center}
+    .nav-link{
+      color:#fff;text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px;transition:all .18s ease;
+    }
+    .nav-link:hover{transform:translateY(-3px); background: rgba(255,255,255,0.07)}
+    .nav-link.active{box-shadow:inset 0 -3px 0 rgba(0,0,0,0.08); background: rgba(255,255,255,0.06)}
 
-    /* ================= SECTION ================= */
-    section {padding: 80px 20px; max-width: var(--maxw); margin: auto;}
-    .section-title {text-align: center; font-size: 30px; margin-bottom: 35px; color: var(--primary); font-weight: 700;}
+    /* HERO */
+    .hero{
+      min-height:90vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+      padding-top:84px; /* leave space for nav */
+      background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;background-position:center;
+    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,10,20,0.6), rgba(3,10,20,0.55));z-index:0}
+    .hero-inner{position:relative;z-index:2;color:white;max-width:980px;padding:40px}
+    .hero .logo-round{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,0.08);display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 16px;box-shadow:0 8px 24px rgba(0,0,0,0.45)}
+    .hero h1{font-size:36px;font-weight:800;line-height:1.05;margin-bottom:8px}
+    .hero .tag{font-style:italic;opacity:.95;margin-bottom:18px}
+    .hero .cta{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;margin:0 8px;box-shadow:0 10px 28px rgba(0,0,0,0.28);transition:transform .18s ease}
+    .cta-primary{background:var(--yellow-500);color:var(--blue-900)}
+    .cta-outline{background:rgba(255,255,255,0.95);color:var(--blue-900)}
 
-    /* ================= ABOUT ================= */
-    .card-row {display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px;}
-    .about-card {background: white; padding: 26px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;}
-    .about-card:hover {transform: translateY(-5px);}
+    /* SECTION BASE */
+    section{padding:72px 20px}
+    .container{max-width:var(--maxw);margin:0 auto}
+    .section-title{text-align:center;font-size:28px;color:var(--blue-700);font-weight:700;margin-bottom:24px}
 
-    /* ================= SERVICES ================= */
-    .services-list {display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 20px;}
-    .service-item {background: white; padding: 22px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 14px; font-weight: 600; color: #0f1724; transition: transform 0.3s ease;}
-    .service-item:hover {transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.15);}
-    .service-item i {color: var(--primary); font-size: 24px;}
+    /* ABOUT */
+    .about-card{background:var(--card-bg);padding:28px;border-radius:14px;box-shadow:0 8px 30px rgba(15,23,36,0.06);border:1px solid rgba(11,95,138,0.06)}
 
-    /* ================= TEAM ================= */
-    .team-wrapper {max-width: var(--maxw); margin: 0 auto; padding: 60px 20px;}
-    .team-top {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;}
-    .team-card-premium {background: white; padding: 25px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); text-align: center; transition: transform 0.3s ease;}
-    .team-card-premium:hover {transform: translateY(-8px);}
-    .team-card-premium img {width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; margin-bottom: 15px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);}
-    .team-card-premium h4 {font-size: 20px; color: #0b5f8a; margin-bottom: 5px;}
-    .team-card-premium p {margin: 4px 0; color: #555; font-weight: 500;}
-    .team-card-premium a {color: #0b5f8a; text-decoration: none; font-weight: 600;}
-    .team-card-premium a:hover {color: #f7931a;}
-    .team-bottom {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 10px;}
-    .team-card-simple {background: white; padding: 20px; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center; transition: all 0.3s ease;}
-    .team-card-simple:hover {transform: translateY(-6px); box-shadow: 0 10px 26px rgba(0,0,0,0.12);}
-    .team-card-simple h4 {color: #0b5f8a; font-size: 18px; margin-bottom: 6px;}
-    .team-card-simple p.role {color: #555; font-weight: 600; margin-bottom: 8px;}
-    .team-card-simple p.desc {color: #777; font-size: 14px; line-height: 1.5;}
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+    .service-item{background:var(--card-bg);padding:18px;border-radius:12px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 6px 20px rgba(3,10,18,0.04);font-weight:600}
+    .service-item i{font-size:20px;color:var(--blue-700);width:44px;height:44px;border-radius:10px;background:rgba(11,95,138,0.06);display:flex;align-items:center;justify-content:center}
 
-    /* ================= FOOTER ================= */
-    footer {background: linear-gradient(135deg, #0b5f8a, #072b45); color: white; padding: 40px 20px 20px; margin-top: 50px;}
-    .footer-container {display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 30px; max-width: var(--maxw); margin: auto;}
-    .footer-links a {color: #fff; text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s ease;}
-    .footer-links a:hover {color: var(--accent);}
-    .social-row {margin: 20px auto; display: flex; justify-content: center; gap: 25px;}
-    .social-row a {width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: white; color: var(--primary); border-radius: 50%; font-size: 22px; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,0.2); transition: all 0.3s ease;}
-    .social-row a:hover {background: var(--accent); color: white; transform: scale(1.1);}
-    .footer-logo {text-align: center; margin-top: 30px;}
-    .footer-logo img {height: 70px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3);}
-    .copyright {text-align: center; margin-top: 20px; font-size: 14px; opacity: 0.8;}
+    /* JOURNEY timeline */
+    .timeline{position:relative;padding-left:22px}
+    .timeline::before{content:"";position:absolute;left:4px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--yellow-500),var(--blue-700));border-radius:8px}
+    .milestone{position:relative;padding:18px 16px 18px 36px;background:transparent;border-radius:8px}
+    .milestone .year{position:absolute;left:-50px;top:12px;background:var(--yellow-500);color:var(--blue-900);width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
 
-    /* ================= PRELOADER ================= */
-    #preloader {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0b5f8a; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.6s ease, visibility 0.6s ease;}
-    .loader-logo img {width: 140px; height: 140px; border-radius: 50%; animation: pulseLogo 2s infinite; filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));}
-    @keyframes pulseLogo {0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.8; } 100% { transform: scale(1); opacity: 1; }}
-    #preloader.hidden {opacity: 0; visibility: hidden;}
+    /* TEAM */
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .team-card{background:var(--card-bg);padding:22px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.06);text-align:left;transition:transform .18s ease, box-shadow .18s ease}
+    .team-card:hover{transform:translateY(-8px);box-shadow:0 18px 46px rgba(2,6,23,0.12)}
+    .team-card h4{color:var(--blue-700);font-weight:700;margin-bottom:6px}
+    .team-card .role{color:var(--muted);font-weight:600;margin-bottom:8px}
+    .team-card .phone{font-weight:700;color:#0f1724;margin-bottom:6px}
+    .team-card .email{color:var(--blue-700);text-decoration:none;font-weight:600}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+
+    /* FOOTER */
+    footer.site-footer{padding:40px 20px;background:linear-gradient(90deg,var(--blue-700),var(--yellow-500));color:white;margin-top:40px}
+    .footer-grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .social-row{display:flex;gap:12px;align-items:center}
+    .social-row a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:white;color:var(--blue-700);text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.15)}
+    .small{font-size:13px;opacity:.9}
+
+    /* Responsive tweaks */
+    @media (max-width:900px){
+      .nav-right{display:none}
+      .hero h1{font-size:28px}
+      .hero .logo-round{width:90px;height:90px}
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- ================= PRELOADER ================= -->
+  <!-- PRELOADER -->
   <div id="preloader">
     <div class="loader-logo">
-      <img src="logo.png.jpg" alt="BIS Logo">
+      <img src="logo.jpg" alt="BNPL Logo">
     </div>
   </div>
 
   <!-- NAVBAR -->
-  <nav>
-    <div class="nav-left"><img src="logo.jpg" alt="BIS Logo" /></div>
-    <div class="nav-right">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
+  <nav class="site-nav" role="navigation" aria-label="main navigation">
+    <div class="nav-left container" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <img src="logo.jpg" alt="BNPL Logo">
+        <div class="brand">Bharadwaj Nirman (OPC) Pvt. Ltd.</div>
+      </div>
+
+      <!-- Desktop menu (hidden on small screens) -->
+      <div class="nav-right" aria-hidden="false">
+        <a class="nav-link" href="#hero">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#journey">Journey</a>
+        <a class="nav-link" href="#team">Team</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="hero">
-    <img src="logo.jpg" alt="BIS Logo" />
-    <h1>Bharadwaj Infra & Services</h1>
-    <div class="tag">SMART INFRA, CLEAN SOLUTIONS</div>
-    <a class="cta" href="mailto:info.bharadwajinfra@gmail.com?subject=Quote%20Request&body=Hello%20BIS%20Team,">Get a Quote</a>
+  <header class="hero" id="hero" role="banner">
+    <div class="hero-inner" data-aos="fade-up">
+      <div class="logo-round">LOGO</div>
+      <h1>Bharadwaj Nirman (OPC) Pvt. Ltd.</h1>
+      <div class="tag">Ad Meliora — Towards Better Things</div>
+      <div>
+        <a class="cta cta-primary" href="#services">Our Services</a>
+        <a class="cta cta-outline" href="#contact">Contact Us</a>
+      </div>
+    </div>
   </header>
 
   <!-- ABOUT -->
-  <section id="about" data-aos="fade-up">
-    <h2 class="section-title">About Us</h2>
-    <div class="card-row">
-      <div class="about-card">
-        <h3 style="color:var(--primary); margin-bottom:8px;">Bharadwaj Infra & Services (BIS)</h3>
-        <p><strong>Chairman & Director:</strong> Mr. Ashish Kumar Dwivedi</p>
-        <p>BIS is a professional service firm focused on infrastructure support, facility management, and tender-based projects...</p>
-      </div>
-      <div class="about-card">
-        <h4 style="color:var(--primary);">Quick Contact</h4>
-        <p>Email: <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a></p>
-        <p>Phone: <a href="tel:+916260619612">+91 62606 19612</a></p>
-        <p>Address: Jagmal Block, Bilaspur (C.G)</p>
-        <p>Instagram: <a href="https://www.instagram.com/bis_infra" target="_blank">@bis_infra</a></p>
+  <section id="about" aria-labelledby="about-title">
+    <div class="container">
+      <h2 id="about-title" class="section-title">About Us</h2>
+      <div class="about-card" data-aos="fade-up">
+        <p style="font-size:15.5px;line-height:1.8;color:#334155">
+          Established in <strong>2023</strong>, <strong>Bharadwaj Nirman (OPC) Pvt. Ltd.</strong> is based in Rewa, delivering professional expertise in
+          <strong>Civil Engineering, Road Construction, Electrical Installations, Building Works, and Support Services</strong>. We undertake both Government and Private contracts with an emphasis on quality, reliability and sustainable execution.
+        </p>
+
+        <p style="margin-top:14px;color:#334155">
+          In <strong>2024</strong>, we registered officially as <strong>Bharadwaj Nirman (OPC) Pvt. Ltd.</strong> with a dedicated team of approximately <strong>15 employees</strong>, enabling us to participate in large-scale Government and Private tenders.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" data-aos="fade-up">
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-list">
-      <div class="service-item"><i class="fas fa-industry"></i> Infrastructure Development & Construction Support</div>
-      <div class="service-item"><i class="fas fa-clipboard-list"></i> Tender-Based Custom Projects</div>
-      <div class="service-item"><i class="fas fa-tree"></i> Public Space Maintenance & Facility Management</div>
-      <div class="service-item"><i class="fas fa-broom"></i> Municipal Sanitation & Waste Management</div>
-      <div class="service-item"><i class="fas fa-recycle"></i> Solid Waste Collection & Disposal</div>
+  <section id="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" class="section-title">Core Services</h2>
+
+      <div class="services-grid" data-aos="fade-up" data-aos-delay="80">
+        <div class="service-item"><i class="fas fa-road"></i><div>Road Construction, RCC & General Civil Works (42101)</div></div>
+        <div class="service-item"><i class="fas fa-bolt"></i><div>Electrical Installation – Industrial & Building (43211)</div></div>
+        <div class="service-item"><i class="fas fa-building"></i><div>Building Works & Maintenance</div></div>
+        <div class="service-item"><i class="fas fa-users"></i><div>Manpower & Security Supply (82990)</div></div>
+        <div class="service-item"><i class="fas fa-toolbox"></i><div>Machinery / Equipment Rental (77301)</div></div>
+        <div class="service-item"><i class="fas fa-store"></i><div>Non-specialised Wholesale Trade (46909)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey" aria-labelledby="journey-title">
+    <div class="container">
+      <h2 id="journey-title" class="section-title">Our Journey</h2>
+
+      <div class="timeline" data-aos="fade-up" data-aos-delay="80">
+        <div class="milestone">
+          <div class="year">2022</div>
+          <div style="margin-left:20px">
+            <strong>Sanitation & Infrastructure Support</strong>
+            <div style="color:var(--muted);margin-top:6px">Started with private contracts in sanitation & infrastructure support.</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <div class="year">2023</div>
+          <div style="margin-left:20px">
+            <strong>Civil, Road & Building Works</strong>
+            <div style="color:var(--muted);margin-top:6px">Expanded into road construction, building works, manpower supply and machinery rental.</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <div class="year">2024</div>
+          <div style="margin-left:20px">
+            <strong>Registered as Bharadwaj Nirman (OPC) Pvt. Ltd.</strong>
+            <div style="color:var(--muted);margin-top:6px">Formed with ~15 employees to participate in Government & Private tenders.</div>
+          </div>
+        </div>
+
+        <div class="milestone">
+          <div class="year">2025</div>
+          <div style="margin-left:20px">
+            <strong>Road, Civil & Electrical Projects</strong>
+            <div style="color:var(--muted);margin-top:6px">Focused expansion in road construction, civil works, electrical installations and building projects.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section id="team" data-aos="fade-up">
-    <div class="team-wrapper">
-      <h2 class="section-title">Our Team</h2>
-      <div class="team-top">
-        <div class="team-card-premium">
-          <img src="ashish.jpg.jpg" alt="Ashish Kumar Dwivedi">
+  <section id="team" aria-labelledby="team-title">
+    <div class="container">
+      <h2 id="team-title" class="section-title">Our Team</h2>
+
+      <div class="team-grid" data-aos="fade-up" data-aos-delay="80">
+        <!-- Ashish -->
+        <div class="team-card">
+          <!-- If you have a photo, replace the top with an <img> -->
           <h4>Ashish Kumar Dwivedi</h4>
-          <p>Chairman & Director</p>
-          <p><strong>+91 62606 19612</strong></p>
-          <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a>
+          <div class="role">Chairman & Director</div>
+          <div class="phone">+91 62606 19612</div>
+          <a class="email" href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a>
         </div>
-        <div class="team-card-premium">
-          <img src="atul.jpg.jpg" alt="Atul Kumar Pandey">
+
+        <!-- Atul -->
+        <div class="team-card">
           <h4>Atul Kumar Pandey</h4>
-          <p>Senior Project Director</p>
-          <p><strong>+91 89597 21665</strong></p>
-          <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a>
+          <div class="role">Senior Project Director</div>
+          <div class="phone">+91 89597 21665</div>
+          <a class="email" href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a>
+          <p style="margin-top:10px;color:var(--muted)">Bringing strong leadership and operational expertise to BNPL. Oversees project execution, manpower allocation, and vendor coordination.</p>
+        </div>
+
+        <!-- Sonu -->
+        <div class="team-card">
+          <h4>Sonu Nahar</h4>
+          <div class="role">Project Manager</div>
+          <p style="margin-top:8px;color:var(--muted)">Expert in supervising site activities and managing on-ground workforce for smooth project execution.</p>
+        </div>
+
+        <!-- Prateek -->
+        <div class="team-card">
+          <h4>Prateek Dwivedi</h4>
+          <div class="role">Project Execution</div>
+          <p style="margin-top:8px;color:var(--muted)">Manages execution workflows, ensures timely deliverables, and coordinates with vendors and clients.</p>
+        </div>
+
+        <!-- Raj -->
+        <div class="team-card">
+          <h4>Raj Dwivedi</h4>
+          <div class="role">Project & Admin</div>
+          <p style="margin-top:8px;color:var(--muted)">Handles administrative responsibilities and supports seamless coordination between project teams and management.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" data-aos="fade-up">
-    <h2 class="section-title">Contact Us</h2>
-    <div style="text-align:center;">
-      <p>Email: <a href="mailto:info.bharadwajinfra@gmail.com">info.bharadwajinfra@gmail.com</a></p>
-      <p>Phone: <a href="tel:+916260619612">+91 62606 19612</a></p>
-      <p>Address: Jagmal Block, Bilaspur (C.G)</p>
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title" class="section-title">Contact Us</h2>
+
+      <div class="contact-grid" data-aos="fade-up" data-aos-delay="80">
+        <div class="team-card">
+          <div style="display:flex;align-items:center;gap:10px">
+            <i class="fas fa-map-pin" style="font-size:20px;color:var(--blue-700)"></i>
+            <strong>Location</strong>
+          </div>
+          <p style="margin-top:8px;color:var(--muted)">Rewa, Madhya Pradesh</p>
+        </div>
+
+        <div class="team-card">
+          <div style="display:flex;align-items:center;gap:10px">
+            <i class="fas fa-envelope" style="font-size:20px;color:var(--blue-700)"></i>
+            <strong>Email</strong>
+          </div>
+          <a href="mailto:bharadwajnirman@gmail.com" style="display:block;margin-top:8px;color:var(--blue-700);font-weight:600">bharadwajnirman@gmail.com</a>
+        </div>
+
+        <div class="team-card">
+          <div style="display:flex;align-items:center;gap:10px">
+            <i class="fab fa-instagram" style="font-size:20px;color:var(--blue-700)"></i>
+            <strong>Instagram</strong>
+          </div>
+          <a href="https://instagram.com/bharadwaj.nirman" target="_blank" style="display:block;margin-top:8px;color:var(--blue-700);font-weight:600">@bharadwaj.nirman</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3 style="margin-bottom:6px">Bharadwaj Nirman (OPC) Pvt. Ltd.</h3>
+        <div class="small">Building Trustworthy Infrastructure</div>
+        <div style="margin-top:12px" class="small">© <span id="cyear"></span> BNPL. All rights reserved.</div>
       </div>
-      <div class="footer-links">
-        <h4>Contact</h4>
-        <p>Email: info.bharadwajinfra@gmail.com</p>
-        <p>Phone: +91 62606 19612</p>
-        <p>Address: Jagmal Block, Bilaspur (C.G)</p>
+
+      <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:center">
+        <div class="small">Professional Profile Website</div>
+        <div class="social-row" style="margin-top:10px">
+          <a href="https://instagram.com/bharadwaj.nirman" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:bharadwajnirman@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+          <a href="tel:+916260619612" aria-label="Phone"><i class="fa fa-phone"></i></a>
+        </div>
       </div>
     </div>
-    <div class="social-row">
-      <a href="https://www.instagram.com/bis_infra" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="mailto:info.bharadwajinfra@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:+916260619612"><i class="fas fa-phone"></i></a>
-    </div>
-    <div class="footer-logo"><img src="logo.jpg" alt="BIS Logo"></div>
-    <div class="copyright">© 2024 Bharadwaj Infra & Services. All Rights Reserved.</div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scripts: AOS + small interactivity -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({duration: 800, offset: 100});
-    window.addEventListener("load", () => {
-      document.getElementById("preloader").classList.add("hidden");
+    AOS.init({ duration: 700, offset: 80 });
+
+    // Preloader hide on window load
+    window.addEventListener('load', function(){
+      const pre = document.getElementById('preloader');
+      pre.classList.add('hidden');
     });
+
+    // Active nav link on scroll
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+    const sections = Array.from(document.querySelectorAll('section, header'));
+    function updateActiveNav(){
+      const offset = window.scrollY + 120;
+      let current = 'hero';
+      sections.forEach(sec=>{
+        if (sec.id && offset >= sec.offsetTop) current = sec.id;
+      });
+      navLinks.forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+    updateActiveNav();
+    window.addEventListener('scroll', updateActiveNav);
+
+    // Smooth scroll for nav (fallback for anchors)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const top = target.offsetTop - 72; // account for fixed nav
+          window.scrollTo({top, behavior:'smooth'});
+        }
+      });
+    });
+
+    // set copyright year
+    document.getElementById('cyear').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
