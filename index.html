@@ -534,5 +534,194 @@
     // set copyright year
     document.getElementById('cyear').textContent = new Date().getFullYear();
   </script>
+  <!-- Floating Quote CTA + Modal (paste before </body>) -->
+<!-- Floating Button -->
+<button id="quoteBtn" class="floating-quote" aria-label="Get a Quote" title="Get a Quote">
+  <i class="fas fa-comment-dollar" aria-hidden="true" style="margin-right:8px"></i>
+  <span>Get a Quote</span>
+</button>
+
+<!-- Modal -->
+<div id="quoteModal" class="quote-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="quoteTitle">
+  <div class="quote-overlay" data-close="true"></div>
+  <div class="quote-panel" role="document">
+    <button class="quote-close" aria-label="Close">&times;</button>
+    <h3 id="quoteTitle" style="margin-bottom:8px">Get a Quote</h3>
+    <p style="margin:0 0 12px;color:var(--muted)">Tell us a bit about your project — we'll reply ASAP.</p>
+
+    <form id="quoteForm">
+      <label style="display:block;margin-bottom:8px;font-weight:600">
+        Name
+        <input name="name" type="text" required placeholder="Your name" />
+      </label>
+
+      <label style="display:block;margin-bottom:8px;font-weight:600">
+        Phone
+        <input name="phone" type="tel" required placeholder="+91 7XXXXXXXXX" />
+      </label>
+
+      <label style="display:block;margin-bottom:8px;font-weight:600">
+        Service
+        <select name="service" required>
+          <option value="">Select service</option>
+          <option>Road Construction</option>
+          <option>Civil Works</option>
+          <option>Electrical Installation</option>
+          <option>Machinery Rental</option>
+          <option>Manpower Supply</option>
+        </select>
+      </label>
+
+      <label style="display:block;margin-bottom:12px;font-weight:600">
+        Message
+        <textarea name="message" rows="3" placeholder="Brief project details (location, size, timeline)"></textarea>
+      </label>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <button type="submit" class="cta cta-primary" style="padding:10px 14px;border-radius:8px">Send Request</button>
+        <button type="button" class="cta-outline" id="quoteLater" style="padding:10px 12px;border-radius:8px">Close</button>
+      </div>
+    </form>
+    <small style="display:block;margin-top:10px;color:var(--muted)">Or message us on <strong>WhatsApp</strong> at <a href="tel:+916260619612">+91 62606 19612</a></small>
+  </div>
+</div>
+
+<style>
+/* Floating button */
+.floating-quote{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:9998;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:12px 14px;
+  border-radius:999px;
+  box-shadow:0 12px 30px rgba(2,6,23,0.18);
+  background:var(--accent);
+  color:white;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  transform:translateY(120%);
+  transition:transform .36s cubic-bezier(.2,.9,.2,1), opacity .2s;
+  opacity:0;
+  pointer-events:none;
+}
+.floating-quote.show{ transform:translateY(0); opacity:1; pointer-events:auto; }
+
+/* Modal */
+.quote-modal{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:9999; visibility:hidden; opacity:0; transition:opacity .18s ease, visibility .18s ease }
+.quote-modal.open{ visibility:visible; opacity:1; }
+.quote-overlay{ position:absolute; inset:0; background:rgba(2,6,23,0.45); backdrop-filter:blur(3px) }
+.quote-panel{
+  position:relative;
+  width:min(620px,94%);
+  background:var(--card-bg);
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 20px 60px rgba(2,6,23,0.18);
+  z-index:1;
+  border:1px solid rgba(11,95,138,0.06);
+}
+.quote-panel input, .quote-panel textarea, .quote-panel select{
+  width:100%; margin-top:8px; padding:10px 12px; border-radius:8px; border:1px solid rgba(15,23,36,0.06); font-family:inherit;
+}
+.quote-close{
+  position:absolute; right:12px; top:10px; background:transparent; border:none; font-size:24px; line-height:1; cursor:pointer; color:var(--muted)
+}
+
+/* small responsive tweak */
+@media (max-width:600px){
+  .floating-quote{ right:14px; bottom:14px; padding:10px 12px }
+  .quote-panel{ padding:14px }
+}
+</style>
+
+<script>
+(function(){
+  const btn = document.getElementById('quoteBtn');
+  const modal = document.getElementById('quoteModal');
+  const form = document.getElementById('quoteForm');
+  const closeBtn = modal.querySelector('.quote-close');
+  const quoteLater = document.getElementById('quoteLater');
+  const STORAGE_KEY = 'bnpl_quote_shown_session';
+
+  // show floating CTA (but only after user scrolls down once)
+  let shown = sessionStorage.getItem(STORAGE_KEY) === '1';
+  function showCTAandMaybeModal() {
+    if (shown) return;
+    // show floating button
+    btn.classList.add('show');
+    // open modal automatically once (user requested "ek baar bs pop up")
+    openModal();
+    shown = true;
+    sessionStorage.setItem(STORAGE_KEY, '1');
+  }
+
+  // scroll listener (trigger once)
+  function onScroll() {
+    if (window.scrollY > 200) {
+      showCTAandMaybeModal();
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  window.addEventListener('scroll', onScroll);
+
+  // If user already scrolled before script loaded, check once
+  if (window.scrollY > 200 && !shown) {
+    showCTAandMaybeModal();
+  }
+
+  // open/close modal functions
+  function openModal(){
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    // ensure floating button visible
+    btn.classList.add('show');
+    // trap focus (simple)
+    setTimeout(()=> modal.querySelector('input[name="name"]').focus(), 200);
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  // click handlers
+  btn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  quoteLater.addEventListener('click', closeModal);
+  modal.querySelector('.quote-overlay').addEventListener('click', closeModal);
+
+  // keyboard escape closes
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  // form submit -> open mail client with prefilled content
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name') || '';
+    const phone = data.get('phone') || '';
+    const service = data.get('service') || '';
+    const message = data.get('message') || '';
+    const to = encodeURIComponent('bharadwajnirman@gmail.com');
+    const subject = encodeURIComponent('Quote Request from website — ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Service: ' + service + '\n\n' +
+      'Message:\n' + message
+    );
+    // open mail client
+    window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+    // close modal (optional)
+    closeModal();
+  });
+})();
+</script>
+
 </body>
 </html>
