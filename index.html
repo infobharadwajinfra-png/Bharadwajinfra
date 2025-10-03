@@ -16,6 +16,77 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
+    /* Floating Quote Button */
+.floating-quote{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  background:var(--blue-700);
+  color:white;
+  border:none;
+  border-radius:30px;
+  padding:12px 18px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,0.25);
+  transition:all .2s ease;
+  z-index:1000;
+}
+.floating-quote:hover{background:var(--yellow-500);color:var(--blue-900)}
+
+/* Modal */
+.quote-modal{position:fixed; inset:0; display:none; z-index:1100}
+.quote-modal.active{display:block}
+.quote-overlay{
+  position:absolute; inset:0;
+  background:rgba(0,0,0,0.6);
+}
+.quote-panel{
+  position:relative;
+  max-width:420px;
+  margin:10% auto;
+  background:#fff;
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.3);
+  z-index:2;
+}
+.quote-close{
+  position:absolute;
+  top:12px; right:16px;
+  font-size:22px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:#444;
+}
+.quote-panel input,
+.quote-panel select{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  margin-bottom:12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+.quote-panel button[type="submit"]{
+  background:var(--blue-700);
+  color:white;
+  border:none;
+  border-radius:8px;
+  padding:10px 16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .2s ease;
+}
+.quote-panel button[type="submit"]:hover{
+  background:var(--yellow-500);
+  color:var(--blue-900);
+}
+
     :root{
       --blue-900: #052f4f;
       --blue-700: #0b5f8a;
