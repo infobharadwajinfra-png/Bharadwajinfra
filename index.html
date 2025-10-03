@@ -722,6 +722,97 @@
   });
 })();
 </script>
+  <!-- WhatsApp Floating Button -->
+<style>
+/* WhatsApp floating button */
+.floating-wa{
+  position:fixed;
+  right:20px;
+  bottom:80px; /* quote button ke upar */
+  z-index:9998;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  box-shadow:0 12px 30px rgba(2,6,23,0.18);
+  background:#25D366;
+  color:white;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .18s ease,opacity .18s;
+}
+.floating-wa i{font-size:18px}
+.floating-wa:focus{outline:2px solid rgba(0,0,0,0.08)}
+</style>
+
+<!-- Floating WhatsApp Button -->
+<button id="waBtn" class="floating-wa" aria-label="Message on WhatsApp" title="Message on WhatsApp">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  <span>WhatsApp</span>
+</button>
+
+<!-- WhatsApp Script -->
+<script>
+(function(){
+  // ✅ अपना नंबर यहाँ डालें (country code +91 सहित)
+  const WA_NUMBER = '+916260619612';
+
+  function openWhatsApp(prefilledText){
+    const text = encodeURIComponent(prefilledText || 'Hello, I want a quote for my project.');
+    const url = 'https://api.whatsapp.com/send?phone=' + encodeURIComponent(WA_NUMBER) + '&text=' + text;
+    window.open(url, '_blank');
+  }
+
+  // Floating Button
+  const waBtn = document.getElementById('waBtn');
+  if(waBtn){
+    waBtn.addEventListener('click', function(){
+      const msg = 'Hello BNPL — I want more details. Please contact me.';
+      openWhatsApp(msg);
+    });
+  }
+
+  // Quote Modal Button (agar modal form h to id="quoteForm" hona chahiye)
+  const quoteForm = document.getElementById('quoteForm');
+  if(quoteForm){
+    // naya button banake form ke andar jod do
+    const waSendBtn = document.createElement('button');
+    waSendBtn.type = 'button';
+    waSendBtn.innerHTML = '<i class="fab fa-whatsapp" style="margin-right:6px"></i>Send on WhatsApp';
+    waSendBtn.className = 'floating-wa';
+    waSendBtn.style.position = 'relative';
+    waSendBtn.style.padding = '8px 12px';
+    waSendBtn.style.fontWeight = '700';
+
+    // add kare form ke andar last me
+    quoteForm.appendChild(waSendBtn);
+
+    // click behavior
+    waSendBtn.addEventListener('click', function(){
+      const data = new FormData(quoteForm);
+      const name = data.get('name') || '';
+      const phone = data.get('phone') || '';
+      const service = data.get('service') || '';
+      const message = data.get('message') || '';
+
+      let text = 'Quote Request from Website — Bharadwaj Nirman (OPC) Pvt. Ltd.%0A%0A';
+      if (name) text += 'Name: ' + name + '%0A';
+      if (phone) text += 'Phone: ' + phone + '%0A';
+      if (service) text += 'Service: ' + service + '%0A';
+      if (message) text += '%0AProject details:%0A' + message + '%0A';
+
+      if (!name && !phone && !service && !message){
+        text = 'Hello, I would like a quote. Please contact me on WhatsApp.';
+      }
+      const url = 'https://api.whatsapp.com/send?phone=' + encodeURIComponent(WA_NUMBER) + '&text=' + text;
+      window.open(url, '_blank');
+    });
+  }
+})();
+</script>
+
 
 </body>
 </html>
