@@ -6,6 +6,8 @@
   <title>Bharadwaj Nirman (OPC) Pvt. Ltd. — BNPL</title>
   <meta name="description" content="Bharadwaj Nirman (OPC) Pvt. Ltd. — Civil, Road, Electrical, Building Works & Support Services. Rewa." />
 
+  <!-- Favicon (replace file if you have custom favicon) -->
+  <link rel="icon" href="bnpl-favicon.png" type="image/png">
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -23,6 +25,7 @@
       --card-bg: #ffffff;
       --page-bg: #f5f7fb;
       --maxw: 1200px;
+      --accent: #e95b19; /* orange dot */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -36,37 +39,54 @@
       scroll-behavior:smooth;
     }
 
-    /* Animated gradient background layers (subtle) */
+    /* Animated subtle background */
     body::before{
       content:"";
       position:fixed; inset:0;
       background:
-        radial-gradient(circle at 10% 10%, rgba(11,95,138,0.18), transparent 20%),
-        radial-gradient(circle at 90% 90%, rgba(247,183,51,0.14), transparent 20%);
+        radial-gradient(circle at 10% 10%, rgba(11,95,138,0.12), transparent 20%),
+        radial-gradient(circle at 90% 90%, rgba(247,183,51,0.08), transparent 20%);
       z-index:-2;
       animation:bgMove 20s ease-in-out infinite alternate;
     }
     @keyframes bgMove{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    /* Preloader */
+    /* PRELOADER */
     #preloader{
       position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
       background:var(--blue-900); z-index:9999; transition:opacity .6s ease, visibility .6s ease;
     }
     #preloader.hidden{opacity:0;visibility:hidden}
-    .loader-logo img{width:140px;height:140px;border-radius:50%; box-shadow:0 8px 30px rgba(0,0,0,0.45); animation:pulse 2s infinite}
-    @keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:.85}100%{transform:scale(1);opacity:1}}
+    .loader-logo img{
+      width:120px;
+      height:120px;
+      object-fit:contain; /* ensure logo not cropped */
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.45);
+      animation:pulse 2s infinite;
+      background: white;
+      padding:8px;
+    }
+    @keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.9}100%{transform:scale(1);opacity:1}}
 
     /* NAVBAR */
     nav.site-nav{
       position:fixed; top:0; left:0; right:0; z-index:900;
       background:linear-gradient(90deg,var(--yellow-400, #f9c94a), var(--blue-700, #0b5f8a));
-      padding:12px 20px; box-shadow:0 6px 20px rgba(3,10,18,0.12);
+      padding:10px 20px; box-shadow:0 6px 20px rgba(3,10,18,0.12);
       display:flex; align-items:center; justify-content:space-between;
       backdrop-filter: blur(6px);
     }
-    .nav-left{display:flex; align-items:center; gap:14px}
-    .nav-left img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,0.18)}
+    .nav-left{display:flex; align-items:center; gap:12px}
+    .nav-left img{
+      width:56px;
+      height:56px;
+      object-fit:contain; /* zoom-out fix so text not cut */
+      border-radius:8px;
+      background:white;
+      padding:6px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
+    }
     .brand {font-weight:700;color:#fff;font-size:18px;letter-spacing:.2px}
     .nav-right{display:flex; gap:18px; align-items:center}
     .nav-link{
@@ -77,7 +97,7 @@
 
     /* HERO */
     .hero{
-      min-height:90vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+      min-height:86vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
       padding-top:84px; /* leave space for nav */
       background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop');
       background-size:cover;background-position:center;
@@ -96,19 +116,108 @@
     .container{max-width:var(--maxw);margin:0 auto}
     .section-title{text-align:center;font-size:28px;color:var(--blue-700);font-weight:700;margin-bottom:24px}
 
-    /* ABOUT */
-    .about-card{background:var(--card-bg);padding:28px;border-radius:14px;box-shadow:0 8px 30px rgba(15,23,36,0.06);border:1px solid rgba(11,95,138,0.06)}
+    /* ABOUT - two-column layout (text + side card) */
+    .about-card{background:var(--card-bg);padding:22px;border-radius:14px;box-shadow:0 8px 30px rgba(15,23,36,0.06);border:1px solid rgba(11,95,138,0.06)}
+    .about-row{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+    .about-text p{font-size:15.5px;line-height:1.8;color:#334155;margin-bottom:12px}
+
+    /* Experience card (3+ years) */
+    .exp-card{
+      background:linear-gradient(180deg, #fff, #fbfdff);
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:flex-start;
+      border:4px solid rgba(11,95,138,0.12);
+      box-shadow:0 8px 30px rgba(11,95,138,0.06);
+    }
+    .exp-number{
+      width:96px;height:96px;border-radius:6px;border:4px solid var(--blue-700);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;color:var(--blue-700);background:white;
+    }
+    .exp-text{font-weight:700;color:var(--blue-700);font-size:14px}
+    .exp-sub{color:var(--muted);font-weight:600;font-size:13px;margin-top:6px;max-width:220px}
 
     /* SERVICES */
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
     .service-item{background:var(--card-bg);padding:18px;border-radius:12px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 6px 20px rgba(3,10,18,0.04);font-weight:600}
     .service-item i{font-size:20px;color:var(--blue-700);width:44px;height:44px;border-radius:10px;background:rgba(11,95,138,0.06);display:flex;align-items:center;justify-content:center}
 
-    /* JOURNEY timeline */
-    .timeline{position:relative;padding-left:22px}
-    .timeline::before{content:"";position:absolute;left:4px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--yellow-500),var(--blue-700));border-radius:8px}
-    .milestone{position:relative;padding:18px 16px 18px 36px;background:transparent;border-radius:8px}
-    .milestone .year{position:absolute;left:-50px;top:12px;background:var(--yellow-500);color:var(--blue-900);width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    /* JOURNEY timeline - snake like alternating layout */
+    .timeline{position:relative;padding:10px 0 40px}
+    .timeline .milestone{
+      width:100%;
+      display:flex;
+      align-items:flex-start;
+      margin:26px 0;
+      gap:18px;
+    }
+    /* alternate alignment */
+    .milestone.left{justify-content:flex-start}
+    .milestone.right{justify-content:flex-end; flex-direction:row-reverse}
+    .milestone .content{
+      width:50%;
+      background:var(--card-bg);
+      padding:18px 20px;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.04);
+      border:1px solid rgba(11,95,138,0.06);
+      font-weight:600;
+    }
+    .milestone .meta{font-size:13px;color:var(--muted);margin-top:8px;font-weight:500}
+    /* connector area */
+    .milestone .track{
+      width:40%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      min-height:20px;
+    }
+    /* horizontal rounded connector */
+    .milestone .track::before{
+      content:"";
+      display:block;
+      width:100%;
+      height:6px;
+      background:transparent;
+      border-top:6px solid rgba(11,95,138,0.14);
+      border-radius:30px;
+    }
+    /* curved corners for visual (using pseudo arcs) */
+    .milestone.left .track::after,
+    .milestone.right .track::after{
+      content:"";
+      position:absolute;
+      width:22px;height:22px;border-radius:50%;
+      background:white;
+      border:4px solid rgba(11,95,138,0.18);
+      top:-10px;
+    }
+    .milestone.left .track::after{left:6px}
+    .milestone.right .track::after{right:6px}
+
+    /* orange dot indicator overlapping */
+    .milestone .dot{
+      position:absolute; width:12px;height:12px;border-radius:50%;background:var(--accent); border:3px solid white;
+      box-shadow:0 4px 12px rgba(233,91,25,0.22);
+    }
+    .milestone.left .dot{left: calc(25% - 6px)}
+    .milestone.right .dot{right: calc(25% - 6px)}
+
+    /* small responsive tweaks */
+    @media (max-width:900px){
+      .nav-right{display:none}
+      .hero h1{font-size:28px}
+      .hero .logo-round{width:90px;height:90px}
+      .about-row{grid-template-columns:1fr}
+      .exp-card{justify-content:flex-start}
+      .milestone .content{width:100%}
+      .milestone .track{display:none}
+      .milestone.left,.milestone.right{flex-direction:column;align-items:flex-start}
+      .milestone.right{flex-direction:column;align-items:flex-start}
+    }
 
     /* TEAM */
     .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
@@ -128,20 +237,13 @@
     .social-row{display:flex;gap:12px;align-items:center}
     .social-row a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:white;color:var(--blue-700);text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.15)}
     .small{font-size:13px;opacity:.9}
-
-    /* Responsive tweaks */
-    @media (max-width:900px){
-      .nav-right{display:none}
-      .hero h1{font-size:28px}
-      .hero .logo-round{width:90px;height:90px}
-    }
   </style>
 </head>
 
 <body>
 
   <!-- PRELOADER -->
-  <div id="preloader">
+  <div id="preloader" role="status" aria-label="Loading">
     <div class="loader-logo">
       <img src="bnpllogo.png" alt="BNPL Logo">
     </div>
@@ -183,15 +285,41 @@
   <section id="about" aria-labelledby="about-title">
     <div class="container">
       <h2 id="about-title" class="section-title">About Us</h2>
-      <div class="about-card" data-aos="fade-up">
-        <p style="font-size:15.5px;line-height:1.8;color:#334155">
-          Established in <strong>2023</strong>, <strong>Bharadwaj Nirman (OPC) Pvt. Ltd.</strong> is based in Rewa, delivering professional expertise in
-          <strong>Civil Engineering, Road Construction, Electrical Installations, Building Works, and Support Services</strong>. We undertake both Government and Private contracts with an emphasis on quality, reliability and sustainable execution.
-        </p>
 
-        <p style="margin-top:14px;color:#334155">
-          In <strong>2024</strong>, we registered officially as <strong>Bharadwaj Nirman (OPC) Pvt. Ltd.</strong> with a dedicated team of approximately <strong>15 employees</strong>, enabling us to participate in large-scale Government and Private tenders.
-        </p>
+      <div class="about-card" data-aos="fade-up">
+        <div class="about-row">
+          <div class="about-text">
+            <p>
+              Established in <strong>2023</strong>, <strong>Bharadwaj Nirman (OPC) Pvt. Ltd.</strong> is based in Rewa, delivering professional expertise in
+              <strong>Civil Engineering, Road Construction, Electrical Installations, Building Works, and Support Services</strong>. We undertake both Government and Private contracts with an emphasis on quality, reliability and sustainable execution.
+            </p>
+
+            <p>
+              In <strong>2024</strong>, we registered officially as <strong>Bharadwaj Nirman (OPC) Pvt. Ltd.</strong> with a dedicated team of approximately <strong>15 employees</strong>, enabling us to participate in large-scale Government and Private tenders.
+            </p>
+
+            <p style="margin-top:8px;color:var(--muted);font-weight:600">
+              Our expertise comes from hands-on project work across sanitation, roads, building works and electrical installations. We aim for on-time delivery, safety and long-term client relationships.
+            </p>
+          </div>
+
+          <!-- Right column: Experience card + small contact / stat area -->
+          <div>
+            <div class="exp-card" aria-hidden="false" title="Experience">
+              <div class="exp-number">3<span style="font-size:28px;vertical-align:top">+</span></div>
+              <div>
+                <div class="exp-text">YEARS OF EXPERIENCE</div>
+                <div class="exp-sub">Experience & excellence in infra projects — Civil, Roads & Electrical.</div>
+              </div>
+            </div>
+
+            <!-- optional small stat or image area (you can replace with an image) -->
+            <div style="margin-top:16px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,95,138,0.06)">
+              <div style="font-weight:700;color:var(--blue-700)">Ready for Government Tenders</div>
+              <div style="color:var(--muted);margin-top:8px">Registered and equipped to participate in both Government and private tenders.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -217,38 +345,49 @@
     <div class="container">
       <h2 id="journey-title" class="section-title">Our Journey</h2>
 
-      <div class="timeline" data-aos="fade-up" data-aos-delay="80">
-        <div class="milestone">
-          <div class="year">2022</div>
-          <div style="margin-left:20px">
-            <strong>Sanitation & Infrastructure Support</strong>
-            <div style="color:var(--muted);margin-top:6px">Started with private contracts in sanitation & infrastructure support.</div>
+      <div class="timeline" data-aos="fade-up" data-aos-delay="80" aria-live="polite">
+        <!-- Alternating milestones: mimic the sample -->
+        <div class="milestone left" role="article" aria-label="Milestone 2022">
+          <div class="content">
+            <strong>2022</strong>
+            <div class="meta">Sanitation & Infrastructure Support — Started with private contracts in sanitation & infrastructure support.</div>
+          </div>
+          <div class="track" aria-hidden="true">
+            <div class="dot" style="left:calc(25% - 6px)"></div>
           </div>
         </div>
 
-        <div class="milestone">
-          <div class="year">2023</div>
-          <div style="margin-left:20px">
-            <strong>Civil, Road & Building Works</strong>
-            <div style="color:var(--muted);margin-top:6px">Expanded into road construction, building works, manpower supply and machinery rental.</div>
+        <div class="milestone right" role="article" aria-label="Milestone 2023">
+          <div class="content">
+            <strong>2023</strong>
+            <div class="meta">Expanded into road construction, building works, manpower supply and machinery rental.</div>
+          </div>
+          <div class="track" aria-hidden="true">
+            <div class="dot" style="right:calc(25% - 6px)"></div>
           </div>
         </div>
 
-        <div class="milestone">
-          <div class="year">2024</div>
-          <div style="margin-left:20px">
-            <strong>Registered as Bharadwaj Nirman (OPC) Pvt. Ltd.</strong>
-            <div style="color:var(--muted);margin-top:6px">Formed with ~15 employees to participate in Government & Private tenders.</div>
+        <div class="milestone left" role="article" aria-label="Milestone 2024">
+          <div class="content">
+            <strong>2024</strong>
+            <div class="meta">Registered as Bharadwaj Nirman (OPC) Pvt. Ltd. — Formed with ~15 employees to participate in Government & Private tenders.</div>
+          </div>
+          <div class="track" aria-hidden="true">
+            <div class="dot" style="left:calc(25% - 6px)"></div>
           </div>
         </div>
 
-        <div class="milestone">
-          <div class="year">2025</div>
-          <div style="margin-left:20px">
-            <strong>Road, Civil & Electrical Projects</strong>
-            <div style="color:var(--muted);margin-top:6px">Focused expansion in road construction, civil works, electrical installations and building projects.</div>
+        <div class="milestone right" role="article" aria-label="Milestone 2025">
+          <div class="content">
+            <strong>2025</strong>
+            <div class="meta">Focused expansion in road construction, civil works, electrical installations and building projects.</div>
+          </div>
+          <div class="track" aria-hidden="true">
+            <div class="dot" style="right:calc(25% - 6px)"></div>
           </div>
         </div>
+
+        <!-- add more milestones below as needed -->
       </div>
     </div>
   </section>
@@ -261,7 +400,6 @@
       <div class="team-grid" data-aos="fade-up" data-aos-delay="80">
         <!-- Ashish -->
         <div class="team-card">
-          <!-- If you have a photo, replace the top with an <img> -->
           <h4>Ashish Kumar Dwivedi</h4>
           <div class="role">Chairman & Director</div>
           <div class="phone">+91 62606 19612</div>
